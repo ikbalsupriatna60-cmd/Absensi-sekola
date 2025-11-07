@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Absensi Sekolah Digital</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Warna latar belakang lembut */
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff; /* Warna biru sekolah */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        /* Styling Navigasi/Menu */
+        nav {
+            background-color: #0056b3; /* Biru yang lebih gelap untuk navigasi */
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #003d80; /* Hover effect */
+        }
+
+        /* Konten Utama */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Styling Tabel Absensi */
+        .attendance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .attendance-table th, .attendance-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .attendance-table th {
+            background-color: #e9ecef; /* Warna header tabel */
+            color: #333;
+            font-weight: bold;
+        }
+
+        .attendance-table tr:nth-child(even) {
+            background-color: #f8f9fa; /* Warna selang-seling */
+        }
+
+        .attendance-table tr:hover {
+            background-color: #e2f0ff; /* Hover pada baris */
+        }
+
+        /* Style untuk Tombol Status */
+        .status-hadir { background-color: #28a745; color: white; padding: 5px 10px; border-radius: 5px; }
+        .status-izin { background-color: #ffc107; color: #333; padding: 5px 10px; border-radius: 5px; }
+        .status-alpa { background-color: #dc3545; color: white; padding: 5px 10px; border-radius: 5px; }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sistem Absensi Sekolah 🏫</h1>
+        <p>**SMK Bina Putra** | Kelas **XII RPL 1**</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Input Absensi</a></li>
+            <li><a href="#">Rekap Harian</a></li>
+            <li><a href="#">Laporan Bulanan</a></li>
+            <li><a href="#">Data Siswa</a></li>
+            <li><a href="#">Pengaturan</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Daftar Kehadiran Siswa - Tanggal: 07 November 2025</h2>
+        <p>Pilih kelas dan mata pelajaran untuk melihat data absensi.</p>
+
+        <div style="margin-bottom: 20px;">
+            <label for="kelas">Pilih Kelas:</label>
+            <select id="kelas" name="kelas">
+                <option value="XII RPL 1">XII RPL 1</option>
+                <option value="XII RPL 2">XII RPL 2</option>
+                </select>
+            <label for="mapel">Mata Pelajaran:</label>
+            <select id="mapel" name="mapel">
+                <option value="matematika">Matematika</option>
+                <option value="fisika">Fisika</option>
+                </select>
+            <button style="background-color: #28a745; color: white; border: none; padding: 8px 15px; border-radius: 5px;">Tampilkan</button>
+            <button style="background-color: #ffc107; color: #333; border: none; padding: 8px 15px; border-radius: 5px; margin-left: 10px;">Cetak Laporan</button>
+        </div>
+        
+        <table class="attendance-table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama Siswa</th>
+                    <th>NIS</th>
+                    <th>Status Hari Ini</th>
+                    <th>Keterangan</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Ahmad Fauzi</td>
+                    <td>2021001</td>
+                    <td><span class="status-hadir">HADIR</span></td>
+                    <td>-</td>
+                    <td><button>Ubah Status</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Budi Santoso</td>
+                    <td>2021002</td>
+                    <td><span class="status-izin">IZIN</span></td>
+                    <td>Sakit Demam</td>
+                    <td><button>Ubah Status</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Cindy Lestari</td>
+                    <td>2021003</td>
+                    <td><span class="status-alpa">ALPA</span></td>
+                    <td>Tidak ada keterangan</td>
+                    <td><button>Ubah Status</button></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Dina Permata</td>
+                    <td>2021004</td>
+                    <td><span class="status-hadir">HADIR</span></td>
+                    <td>-</td>
+                    <td><button>Ubah Status</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        &copy; 2025 SMK Bina Putra. Semua Hak Cipta Dilindungi.
+    </footer>
+
+</body>
+</html>
